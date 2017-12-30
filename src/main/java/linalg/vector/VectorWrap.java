@@ -1,5 +1,6 @@
 package linalg.vector;
 
+import linalg.scalar.Scalar;
 import lombok.EqualsAndHashCode;
 import lombok.RequiredArgsConstructor;
 
@@ -21,7 +22,7 @@ public class VectorWrap<T> implements Vector<T> {
     }
 
     @Override
-    public final T at(final int offset) {
+    public final Scalar<T> at(final int offset) {
         return this.vector.at(offset);
     }
 

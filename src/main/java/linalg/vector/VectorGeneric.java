@@ -3,6 +3,7 @@ package linalg.vector;
 import java.util.Arrays;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
+import linalg.scalar.Scalar;
 
 /**
  * Generic {@link Vector}.
@@ -12,15 +13,11 @@ import java.util.stream.Stream;
  */
 public final class VectorGeneric<T> implements Vector<T> {
 
-    private final T[] data;
+    private final Scalar<T>[] data;
 
-    @SuppressWarnings("unchecked")
-    public VectorGeneric(final Stream<T> data) {
-        this((T[]) data.toArray());
-    }
-
-    public VectorGeneric(final T... data) {
-        this.data = data;
+    @SuppressWarnings({"unchecked", "rawtypes"})
+    public VectorGeneric(final Stream<Scalar<T>> data) {
+        this.data = data.toArray(Scalar[]::new);
     }
 
     @Override
@@ -29,7 +26,7 @@ public final class VectorGeneric<T> implements Vector<T> {
     }
 
     @Override
-    public T at(final int offset) {
+    public Scalar<T> at(final int offset) {
         return this.data[offset];
     }
 

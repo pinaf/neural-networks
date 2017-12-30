@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
+import linalg.scalar.ScalarBigDecimal;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
 
@@ -22,11 +23,7 @@ public final class VectorBigDecimal extends VectorWrap<BigDecimal> {
     }
 
     public VectorBigDecimal(final Stream<BigDecimal> data) {
-        this(data.toArray(BigDecimal[]::new));
-    }
-
-    public VectorBigDecimal(final BigDecimal... data) {
-        super(new VectorGeneric<>(data));
+        super(new VectorGeneric<>(data.map(ScalarBigDecimal::new)));
     }
 
     public VectorBigDecimal(final Number... data) {

@@ -6,17 +6,17 @@ import org.hamcrest.Matchers;
 import org.junit.Test;
 
 /**
- * Tests for {@link MatrixProductBigDecimal}.
+ * Tests for {@link MatrixProduct}.
  * @author Felipe Pina (felipe.pina@toptal.com)
  * @version $Id$
  * @since 1.0
  */
-public final class MatrixProductBigDecimalTest {
+public final class MatrixProductTest {
 
     @Test
     public void matrixProduct() {
         MatcherAssert.assertThat(
-            new MatrixProductBigDecimal(
+            new MatrixProduct<>(
                 new MatrixBigDecimal(5, 3),
                 new MatrixBigDecimal(3, 4)
             ).compute(),
@@ -27,7 +27,7 @@ public final class MatrixProductBigDecimalTest {
             )
         );
         MatcherAssert.assertThat(
-            new MatrixProductBigDecimal(
+            new MatrixProduct<>(
                 new MatrixBigDecimal(
                     2, 3,
                     1, 2, 3,

@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
+import linalg.scalar.Scalar;
 import linalg.vector.Vector;
 import linalg.vector.VectorGeneric;
 
@@ -19,7 +20,7 @@ public final class MatrixGeneric<T> implements Matrix<T> {
 
     private final Vector<T>[] columns;
 
-    public MatrixGeneric(final Stream<T>... data) {
+    public MatrixGeneric(final Stream<Scalar<T>>... data) {
         this(Arrays.stream(data).map(VectorGeneric::new));
     }
 
@@ -62,7 +63,7 @@ public final class MatrixGeneric<T> implements Matrix<T> {
     }
 
     @Override
-    public T at(final int row, final int col) {
+    public Scalar<T> at(final int row, final int col) {
         return this.rows[row].at(col);
     }
 

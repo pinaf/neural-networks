@@ -1,6 +1,7 @@
 package linalg.matrix;
 
 import java.util.stream.Stream;
+import linalg.scalar.Scalar;
 import linalg.vector.Vector;
 import lombok.RequiredArgsConstructor;
 
@@ -36,7 +37,7 @@ public class MatrixWrap<T> implements Matrix<T> {
     }
 
     @Override
-    public final T at(final int row, final int col) {
+    public final Scalar<T> at(final int row, final int col) {
         return this.matrix.at(row, col);
     }
 

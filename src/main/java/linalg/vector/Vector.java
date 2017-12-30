@@ -2,6 +2,7 @@ package linalg.vector;
 
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
+import linalg.scalar.Scalar;
 
 /**
  * Vector.
@@ -13,9 +14,9 @@ public interface Vector<T> {
 
     int dimension();
 
-    T at(int offset);
+    Scalar<T> at(int offset);
 
-    default Stream<T> stream() {
+    default Stream<Scalar<T>> stream() {
         return IntStream.range(0, this.dimension()).mapToObj(this::at);
     }
 

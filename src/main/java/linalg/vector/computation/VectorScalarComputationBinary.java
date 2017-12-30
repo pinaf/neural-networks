@@ -2,7 +2,7 @@ package linalg.vector.computation;
 
 import java.util.function.BiFunction;
 import java.util.function.BinaryOperator;
-import java.util.stream.IntStream;
+import linalg.scalar.Scalar;
 import linalg.scalar.computation.ScalarComputation;
 import linalg.vector.Vector;
 import lombok.RequiredArgsConstructor;
@@ -20,14 +20,15 @@ public final class VectorScalarComputationBinary<T> implements ScalarComputation
 
     private final Vector<T> right;
 
-    private final BiFunction<T, T, T> function;
+    private final BiFunction<Scalar<T>, Scalar<T>, Scalar<T>> function;
 
-    private final BinaryOperator<T> accumulator;
+    private final BinaryOperator<Scalar<T>> accumulator;
 
     @Override
-    public T compute() {
-        return IntStream.range(0, this.left.dimension())
-            .mapToObj(i -> this.function.apply(this.left.at(i), this.right.at(i)))
+    public Scalar<T> compute() {
+        return new VectorComputationBinary<>(this.left, this.right, this.function)
+            .compute()
+            .stream()
             .reduce(this.accumulator).get();
     }
 

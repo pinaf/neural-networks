@@ -1,5 +1,7 @@
 package linalg.scalar.computation;
 
+import linalg.scalar.Scalar;
+
 /**
  * Scalar computation.
  * @author Felipe Pina (felipe.pina@toptal.com)
@@ -8,6 +10,6 @@ package linalg.scalar.computation;
  */
 public interface ScalarComputation<T> {
 
-    T compute();
+    Scalar<T> compute();
 
 }

@@ -1,6 +1,7 @@
 package linalg.matrix;
 
 import java.util.stream.Stream;
+import linalg.scalar.Scalar;
 import linalg.vector.Vector;
 
 /**
@@ -19,7 +20,7 @@ public interface Matrix<T> {
 
     Stream<Vector<T>> allColumns();
 
-    T at(int row, int col);
+    Scalar<T> at(int row, int col);
 
     Vector<T> row(int row);
 

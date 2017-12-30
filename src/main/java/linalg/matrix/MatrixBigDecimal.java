@@ -1,8 +1,6 @@
 package linalg.matrix;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 import linalg.vector.Vector;
@@ -27,9 +25,7 @@ public final class MatrixBigDecimal extends MatrixWrap<BigDecimal> {
 
     public MatrixBigDecimal(final int rows, final int columns, final Number... data) {
         super(
-            new MatrixGeneric<>(
-                MatrixBigDecimal.split(rows, columns, data)
-            )
+            new MatrixGeneric<>(MatrixBigDecimal.split(rows, columns, data))
         );
     }
 
@@ -38,17 +34,13 @@ public final class MatrixBigDecimal extends MatrixWrap<BigDecimal> {
         if (rows * columns != data.length) {
             throw new IllegalArgumentException("Invalid matrix input data");
         }
-        final Collection<Vector<BigDecimal>> all = new ArrayList<>(data.length / 4);
-        final Number[] current = new Number[columns];
-        int pos = 0;
-        for (int idx = 0; idx < rows; ++idx) {
-            for (int jdx = 0; jdx < columns; ++jdx) {
-                current[jdx] = data[pos];
-                pos++;
-            }
-            all.add(new VectorBigDecimal(current));
-        }
-        return all.stream();
+        return IntStream.range(0, rows).mapToObj(idx ->
+            new VectorBigDecimal(
+                IntStream.range(0, columns)
+                    .mapToObj(col -> data[idx * columns + col])
+                    .toArray(Number[]::new)
+            )
+        );
     }
 
 }
