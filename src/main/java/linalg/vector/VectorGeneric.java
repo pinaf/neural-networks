@@ -26,6 +26,11 @@ public final class VectorGeneric<T> implements Vector<T> {
     }
 
     @Override
+    public Stream<Scalar<T>> all() {
+        return Arrays.stream(this.data);
+    }
+
+    @Override
     public Scalar<T> at(final int offset) {
         return this.data[offset];
     }

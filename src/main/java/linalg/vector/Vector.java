@@ -16,6 +16,8 @@ public interface Vector<T> {
 
     Scalar<T> at(int offset);
 
+    Stream<Scalar<T>> all();
+
     default Stream<Scalar<T>> stream() {
         return IntStream.range(0, this.dimension()).mapToObj(this::at);
     }

@@ -1,5 +1,6 @@
 package linalg.vector;
 
+import java.util.stream.Stream;
 import linalg.scalar.Scalar;
 import lombok.EqualsAndHashCode;
 import lombok.RequiredArgsConstructor;
@@ -19,6 +20,11 @@ public class VectorWrap<T> implements Vector<T> {
     @Override
     public final int dimension() {
         return this.vector.dimension();
+    }
+
+    @Override
+    public final Stream<Scalar<T>> all() {
+        return this.vector.all();
     }
 
     @Override
