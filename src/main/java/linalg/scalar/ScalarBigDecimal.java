@@ -18,6 +18,10 @@ public final class ScalarBigDecimal implements Scalar<BigDecimal> {
     @Getter
     private final BigDecimal value;
 
+    public ScalarBigDecimal(final Number value) {
+        this(BigDecimal.valueOf(value.doubleValue()));
+    }
+
     @Override
     public Scalar<BigDecimal> sum(final Scalar<BigDecimal> addend) {
         return new ScalarBigDecimal(this.value.add(addend.value()));

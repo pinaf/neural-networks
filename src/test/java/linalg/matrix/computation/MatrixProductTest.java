@@ -20,11 +20,7 @@ public final class MatrixProductTest {
                 new MatrixBigDecimal(5, 3),
                 new MatrixBigDecimal(3, 4)
             ).compute(),
-            Matchers.is(
-                new MatrixMatcher(
-                    new MatrixBigDecimal(5, 4)
-                )
-            )
+            Matchers.is(new MatrixMatcher(new MatrixBigDecimal(5, 4)))
         );
         MatcherAssert.assertThat(
             new MatrixProduct<>(
@@ -39,8 +35,7 @@ public final class MatrixProductTest {
                     4, 5, -3, -2,
                     0, 2, -1, -1
                 )
-            ).compute()
-            ,
+            ).compute(),
             Matchers.is(
                 new MatrixMatcher(
                     new MatrixBigDecimal(
