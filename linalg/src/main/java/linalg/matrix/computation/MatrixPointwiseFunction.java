@@ -14,7 +14,7 @@ import lombok.RequiredArgsConstructor;
  * @since 1.0
  */
 @RequiredArgsConstructor
-public final class MatrixPontwiseFunction<T> implements MatrixComputation<T> {
+public final class MatrixPointwiseFunction<T> implements MatrixComputation<T> {
 
     private final Matrix<T> matrix;
 
