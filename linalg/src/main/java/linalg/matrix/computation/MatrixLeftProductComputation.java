@@ -11,7 +11,7 @@ import lombok.RequiredArgsConstructor;
  * @since 1.0
  */
 @RequiredArgsConstructor
-public final class MatrixProductComputation<T> implements MatrixComputation<T> {
+public final class MatrixLeftProductComputation<T> implements MatrixComputation<T> {
 
     private final Matrix<T> left;
 

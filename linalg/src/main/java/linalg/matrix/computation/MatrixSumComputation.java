@@ -5,13 +5,13 @@ import linalg.scalar.Scalar;
 import lombok.RequiredArgsConstructor;
 
 /**
- * Matrix sum.
+ * * Matrix sum: X -> X + A.
  * @author Felipe Pina (felipe.pina@toptal.com)
  * @version $Id$
  * @since 1.0
  */
 @RequiredArgsConstructor
-public final class MatrixSum<T> implements MatrixComputation<T> {
+public final class MatrixSumComputation<T> implements MatrixComputation<T> {
 
     private final Matrix<T> left;
 

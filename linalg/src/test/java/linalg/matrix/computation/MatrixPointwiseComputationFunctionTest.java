@@ -7,17 +7,17 @@ import org.hamcrest.Matchers;
 import org.junit.Test;
 
 /**
- * Tests for {@link MatrixPointwiseFunction}.
+ * Tests for {@link MatrixPointwiseComputation}.
  * @author Felipe Pina (felipe.pina@toptal.com)
  * @version $Id$
  * @since 1.0
  */
-public final class MatrixPointwiseFunctionTest {
+public final class MatrixPointwiseComputationFunctionTest {
 
     @Test
     public void appliesFunction() {
         MatcherAssert.assertThat(
-            new MatrixPointwiseFunction<>(
+            new MatrixPointwiseComputation<>(
                 new MatrixBigDecimal(
                     2, 3,
                     1, 2, 3,

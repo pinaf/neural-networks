@@ -1,6 +1,6 @@
 package linalg.matrix.computation;
 
-import java.util.function.Function;
+import linalg.function.Function;
 import linalg.matrix.Matrix;
 import linalg.matrix.MatrixGeneric;
 import linalg.scalar.Scalar;
@@ -8,13 +8,13 @@ import linalg.vector.computation.VectorPointwiseFuncion;
 import lombok.RequiredArgsConstructor;
 
 /**
- * Point-wise {@link Matrix} function.
+ * Point-wise {@link Matrix} computation.
  * @author Felipe Pina (felipe.pina@toptal.com)
  * @version $Id$
  * @since 1.0
  */
 @RequiredArgsConstructor
-public final class MatrixPointwiseFunction<T> implements MatrixComputation<T> {
+public final class MatrixPointwiseComputation<T> implements MatrixComputation<T> {
 
     private final Matrix<T> matrix;
 
