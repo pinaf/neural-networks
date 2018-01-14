@@ -5,13 +5,13 @@ import linalg.vector.computation.VectorDotProduct;
 import lombok.RequiredArgsConstructor;
 
 /**
- * Generic {@link Matrix} left product X -> A * X.
+ * Generic {@link Matrix} product A * B.
  * @author Felipe Pina (felipe.pina@toptal.com)
  * @version $Id$
  * @since 1.0
  */
 @RequiredArgsConstructor
-public final class MatrixLeftProductComputation<T> implements MatrixComputation<T> {
+public final class MatrixProductComputation<T> implements MatrixComputation<T> {
 
     private final Matrix<T> left;
 

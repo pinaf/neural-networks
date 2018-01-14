@@ -15,10 +15,14 @@ import linalg.vector.VectorBigDecimal;
 public final class MatrixBigDecimal extends MatrixWrap<BigDecimal> {
 
     public MatrixBigDecimal(final int rows, final int columns) {
+        this(rows, columns, BigDecimal.ZERO);
+    }
+
+    public MatrixBigDecimal(final int rows, final int columns, final BigDecimal value) {
         super(
             new MatrixGeneric<>(
                 IntStream.range(0, rows)
-                    .mapToObj(row -> new VectorBigDecimal(columns))
+                    .mapToObj(row -> new VectorBigDecimal(columns, value))
             )
         );
     }

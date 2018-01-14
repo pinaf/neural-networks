@@ -19,7 +19,11 @@ import lombok.experimental.Accessors;
 public final class VectorBigDecimal extends VectorWrap<BigDecimal> {
 
     public VectorBigDecimal(final int dimension) {
-        this(IntStream.range(0, dimension).mapToObj(i -> BigDecimal.ZERO));
+        this(dimension, BigDecimal.ZERO);
+    }
+
+    public VectorBigDecimal(final int dimension, final BigDecimal value) {
+        this(IntStream.range(0, dimension).mapToObj(i -> value));
     }
 
     public VectorBigDecimal(final Stream<BigDecimal> data) {
