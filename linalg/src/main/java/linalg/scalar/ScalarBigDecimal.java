@@ -33,6 +33,16 @@ public final class ScalarBigDecimal implements Scalar<BigDecimal> {
     }
 
     @Override
+    public Scalar<BigDecimal> zero() {
+        return new ScalarBigDecimal(BigDecimal.ZERO);
+    }
+
+    @Override
+    public Scalar<BigDecimal> one() {
+        return new ScalarBigDecimal(BigDecimal.ONE);
+    }
+
+    @Override
     public boolean isEqualTo(final Scalar<BigDecimal> other) {
         return this.value.compareTo(other.value()) == 0;
     }

@@ -1,6 +1,6 @@
 package neuralnet.activation;
 
-import java.util.function.Function;
+import linalg.function.Function;
 import linalg.scalar.Scalar;
 
 /**

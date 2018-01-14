@@ -16,4 +16,8 @@ public interface Scalar<T> {
 
     boolean isEqualTo(Scalar<T> other);
 
+    Scalar<T> zero();
+
+    Scalar<T> one();
+
 }
