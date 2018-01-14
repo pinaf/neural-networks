@@ -2,6 +2,7 @@ package neuralnet.activation;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import linalg.function.Function;
 import linalg.scalar.Scalar;
 import linalg.scalar.ScalarBigDecimal;
 
@@ -14,13 +15,13 @@ import linalg.scalar.ScalarBigDecimal;
 public final class Sigmoid implements ActivationFunction<BigDecimal> {
 
     @Override
-    public Scalar<BigDecimal> apply(final Scalar<BigDecimal> scalar) {
+    public Scalar<BigDecimal> at(final Scalar<BigDecimal> scalar) {
         return new ScalarBigDecimal(Sigmoid.sigmoid(scalar.value()));
     }
 
     @Override
-    public ScalarFunction<BigDecimal> derivative() {
-        return x -> new ScalarBigDecimal(Sigmoid.derivative(x.value()));
+    public Function<Scalar<BigDecimal>, Function<Scalar<BigDecimal>, Scalar<BigDecimal>>> derivative() {
+        return x -> h -> new ScalarBigDecimal(Sigmoid.derivative(x.value())).product(h);
     }
 
     private static BigDecimal sigmoid(final BigDecimal value) {

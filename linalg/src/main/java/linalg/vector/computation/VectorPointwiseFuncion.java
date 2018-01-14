@@ -1,6 +1,6 @@
 package linalg.vector.computation;
 
-import java.util.function.Function;
+import linalg.function.Function;
 import linalg.scalar.Scalar;
 import linalg.vector.Vector;
 import linalg.vector.VectorGeneric;
@@ -21,7 +21,7 @@ public final class VectorPointwiseFuncion<T> implements VectorComputation<T> {
 
     @Override
     public Vector<T> compute() {
-        return new VectorGeneric<>(this.vector.stream().map(this.function));
+        return new VectorGeneric<>(this.vector.stream().map(this.function::at));
     }
 
 }

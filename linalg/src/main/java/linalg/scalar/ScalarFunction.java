@@ -1,7 +1,6 @@
-package neuralnet.activation;
+package linalg.scalar;
 
 import linalg.function.Function;
-import linalg.scalar.Scalar;
 
 /**
  * Scalar Function.
