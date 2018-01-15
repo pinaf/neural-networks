@@ -13,7 +13,7 @@ import lombok.RequiredArgsConstructor;
  * @since 1.0
  */
 @RequiredArgsConstructor
-public final class VectorPointwiseFuncion<T> implements VectorComputation<T> {
+public final class VectorPointwise<T> implements VectorComputation<T> {
 
     private final Vector<T> vector;
 

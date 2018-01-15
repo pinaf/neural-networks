@@ -5,7 +5,7 @@ import linalg.vector.Vector;
 import lombok.RequiredArgsConstructor;
 
 /**
- * Computes a {@link Vector} sum.
+ * Computes a {@link Vector} sum: v + w.
  * @author Felipe Pina (felipe.pina@toptal.com)
  * @version $Id$
  * @since 1.0

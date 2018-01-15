@@ -14,6 +14,8 @@ import linalg.scalar.ScalarBigDecimal;
  */
 public final class Sigmoid implements ActivationFunction<BigDecimal> {
 
+    private static final int SCALE = 10;
+
     @Override
     public Scalar<BigDecimal> at(final Scalar<BigDecimal> scalar) {
         return new ScalarBigDecimal(Sigmoid.sigmoid(scalar.value()));
@@ -27,6 +29,7 @@ public final class Sigmoid implements ActivationFunction<BigDecimal> {
     private static BigDecimal sigmoid(final BigDecimal value) {
         return BigDecimal.ONE.divide(
             BigDecimal.ONE.add(BigDecimal.valueOf(StrictMath.exp(value.negate().doubleValue()))),
+            Sigmoid.SCALE,
             RoundingMode.HALF_DOWN
         );
     }

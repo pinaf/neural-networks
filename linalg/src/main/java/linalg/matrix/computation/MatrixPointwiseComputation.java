@@ -4,7 +4,7 @@ import linalg.function.Function;
 import linalg.matrix.Matrix;
 import linalg.matrix.MatrixGeneric;
 import linalg.scalar.Scalar;
-import linalg.vector.computation.VectorPointwiseFuncion;
+import linalg.vector.computation.VectorPointwise;
 import lombok.RequiredArgsConstructor;
 
 /**
@@ -24,7 +24,7 @@ public final class MatrixPointwiseComputation<T> implements MatrixComputation<T>
     public Matrix<T> compute() {
         return new MatrixGeneric<>(
             this.matrix.allRows()
-                .map(v -> new VectorPointwiseFuncion<>(v, this.function).compute())
+                .map(v -> new VectorPointwise<>(v, this.function).compute())
         );
     }
 

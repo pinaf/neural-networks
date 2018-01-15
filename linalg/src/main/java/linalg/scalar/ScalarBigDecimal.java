@@ -28,8 +28,18 @@ public final class ScalarBigDecimal implements Scalar<BigDecimal> {
     }
 
     @Override
+    public Scalar<BigDecimal> difference(final Scalar<BigDecimal> subtrahend) {
+        return new ScalarBigDecimal(this.value.subtract(subtrahend.value()));
+    }
+
+    @Override
     public Scalar<BigDecimal> product(final Scalar<BigDecimal> multiplicand) {
         return new ScalarBigDecimal(this.value.multiply(multiplicand.value()));
+    }
+
+    @Override
+    public Scalar<BigDecimal> quotient(final Scalar<BigDecimal> divisor) {
+        return new ScalarBigDecimal(this.value.divide(divisor.value()));
     }
 
     @Override
@@ -40,6 +50,11 @@ public final class ScalarBigDecimal implements Scalar<BigDecimal> {
     @Override
     public Scalar<BigDecimal> one() {
         return new ScalarBigDecimal(BigDecimal.ONE);
+    }
+
+    @Override
+    public Scalar<BigDecimal> negate() {
+        return new ScalarBigDecimal(this.value.negate());
     }
 
     @Override

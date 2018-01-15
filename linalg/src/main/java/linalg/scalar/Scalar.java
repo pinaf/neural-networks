@@ -12,12 +12,22 @@ public interface Scalar<T> {
 
     Scalar<T> sum(Scalar<T> addend);
 
+    Scalar<T> difference(Scalar<T> subtrahend);
+
     Scalar<T> product(Scalar<T> multiplicand);
+
+    Scalar<T> quotient(Scalar<T> dividend);
 
     boolean isEqualTo(Scalar<T> other);
 
     Scalar<T> zero();
 
     Scalar<T> one();
+
+    Scalar<T> negate();
+
+    default Scalar<T> apply(final ScalarFunction<T> function) {
+        return function.at(this);
+    }
 
 }
