@@ -1,6 +1,7 @@
-package linalg.scalar;
+package linalg.scalar.function;
 
 import linalg.function.Function;
+import linalg.scalar.Scalar;
 
 /**
  * Scalar Function.

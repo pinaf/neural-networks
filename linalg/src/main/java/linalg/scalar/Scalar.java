@@ -26,8 +26,4 @@ public interface Scalar<T> {
 
     Scalar<T> negate();
 
-    default Scalar<T> apply(final ScalarFunction<T> function) {
-        return function.at(this);
-    }
-
 }

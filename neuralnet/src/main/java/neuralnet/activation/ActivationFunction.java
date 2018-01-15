@@ -1,6 +1,6 @@
 package neuralnet.activation;
 
-import linalg.scalar.DifferentiableScalarFunction;
+import linalg.scalar.function.DifferentiableScalarFunction;
 
 /**
  * Activation function.

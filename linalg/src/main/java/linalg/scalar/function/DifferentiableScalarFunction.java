@@ -1,6 +1,7 @@
-package linalg.scalar;
+package linalg.scalar.function;
 
 import linalg.function.DifferentiableFunction;
+import linalg.scalar.Scalar;
 
 /**
  * A differentiable {@link ScalarFunction}.
