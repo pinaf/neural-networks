@@ -33,7 +33,7 @@ public final class CrossEntropy implements DifferentiableFunction<Vector<BigDeci
                 new ScalarBigDecimal(BigDecimal.ONE).difference(this.reference.at(i))
                     .product(CrossEntropy.LOG.at(new ScalarBigDecimal(BigDecimal.ONE).difference(input.at(i))))
             )
-        ).reduce(Scalar::sum).get();
+        ).reduce(Scalar::sum).get().negate();
     }
 
     @Override
