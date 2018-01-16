@@ -5,13 +5,13 @@ import linalg.scalar.Scalar;
 import lombok.RequiredArgsConstructor;
 
 /**
- * * Matrix sum: A + B.
+ * Matrix difference: A - B.
  * @author Felipe Pina (felipe.pina@toptal.com)
  * @version $Id$
  * @since 1.0
  */
 @RequiredArgsConstructor
-public final class MatrixSumComputation<T> implements MatrixComputation<T> {
+public final class MatrixDifferenceComputation<T> implements MatrixComputation<T> {
 
     private final Matrix<T> left;
 
@@ -19,7 +19,7 @@ public final class MatrixSumComputation<T> implements MatrixComputation<T> {
 
     @Override
     public Matrix<T> compute() {
-        return new MatrixComputationBinary<>(this.left, this.right, Scalar::sum)
+        return new MatrixComputationBinary<>(this.left, this.right, Scalar::difference)
             .compute();
     }
 }

@@ -5,13 +5,13 @@ import linalg.vector.Vector;
 import lombok.RequiredArgsConstructor;
 
 /**
- * Computes a {@link Vector} sum: v + w.
+ * Computes a {@link Vector} difference: v - w.
  * @author Felipe Pina (felipe.pina@toptal.com)
  * @version $Id$
  * @since 1.0
  */
 @RequiredArgsConstructor
-public final class VectorSum<T> implements VectorComputation<T> {
+public final class VectorDifferenceComputation<T> implements VectorComputation<T> {
 
     private final Vector<T> left;
 
@@ -19,7 +19,7 @@ public final class VectorSum<T> implements VectorComputation<T> {
 
     @Override
     public Vector<T> compute() {
-        return new VectorComputationBinary<>(this.left, this.right, Scalar::sum)
+        return new VectorComputationBinary<>(this.left, this.right, Scalar::difference)
             .compute();
     }
 
