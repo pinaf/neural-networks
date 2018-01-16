@@ -17,7 +17,7 @@ public final class MatrixRightAffineFunction<T> implements DifferentiableMatrixF
 
     public MatrixRightAffineFunction(final Matrix<T> A, final Matrix<T> B) {
         this.function = new CompositeDifferentiableFunction<>(
-            new MatrixLeftProductFunction<>(A),
+            new MatrixRightProductFunction<>(A),
             new MatrixSumFunction<>(B)
         );
     }
