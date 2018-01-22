@@ -52,7 +52,7 @@ public final class CrossEntropy implements DifferentiableFunction<Vector<BigDeci
                     return this.reference.at(i).quotient(ipt).negate().sum(
                         this.reference.at(i).one().difference(this.reference.at(i))
                             .quotient(ipt.one().difference(ipt))
-                    );
+                    ).product(H.at(i));
                 })
             )
         ).compute();

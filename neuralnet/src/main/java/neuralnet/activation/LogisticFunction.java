@@ -18,7 +18,7 @@ public final class LogisticFunction implements ActivationFunction<BigDecimal> {
 
     @Override
     public Scalar<BigDecimal> at(final Scalar<BigDecimal> scalar) {
-        return new ScalarBigDecimal(LogisticFunction.sigmoid(scalar.value()));
+        return new ScalarBigDecimal(LogisticFunction.logistic(scalar.value()));
     }
 
     @Override
@@ -26,7 +26,7 @@ public final class LogisticFunction implements ActivationFunction<BigDecimal> {
         return x -> h -> new ScalarBigDecimal(LogisticFunction.derivative(x.value())).product(h);
     }
 
-    private static BigDecimal sigmoid(final BigDecimal value) {
+    private static BigDecimal logistic(final BigDecimal value) {
         return BigDecimal.ONE.divide(
             BigDecimal.ONE.add(BigDecimal.valueOf(StrictMath.exp(value.negate().doubleValue()))),
             LogisticFunction.SCALE,
@@ -35,8 +35,8 @@ public final class LogisticFunction implements ActivationFunction<BigDecimal> {
     }
 
     private static BigDecimal derivative(final BigDecimal value) {
-        final BigDecimal sigmoid = LogisticFunction.sigmoid(value);
-        return sigmoid.multiply(LogisticFunction.sigmoid(BigDecimal.ONE.subtract(sigmoid)));
+        final BigDecimal logistic = LogisticFunction.logistic(value);
+        return logistic.multiply(BigDecimal.ONE.subtract(logistic));
     }
 
 }
